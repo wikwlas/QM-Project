@@ -1,0 +1,103 @@
+\documentclass[11pt,a4paper,oneside]{article}
+\usepackage{geometry}
+\geometry{left=25mm, right=25mm, top=20mm, bottom=25mm}
+% komendy umożliwiające obsługę języka polskiego i znaków matematycznych 
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+% komendy umożliwiające wrzucanie obrazków i hiperlinków
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{enumitem}
+\usepackage{pythontex}
+\begin{document}
+\section{Równanie Schrödingera dla nieskończonej dwuwymiarowej studni potencjału}
+	Mamy studnię potencjału o wymiarach $a=1$, $b=1$. Liczby kwantowe $n_{x}$, $n_{y}$.
+	\newline
+	
+	\noindent Równanie Schrödingera jest dane wzorem
+	\begin{equation}
+		i\hbar \frac{\delta \Psi}{\delta t} = -\frac{\hbar^{2}}{2m}\frac{\delta ^{2} \Psi}{\delta x ^{2}}+V \Psi.
+	\end{equation}
+	Potencjał rozważanej studni wynosi
+	\begin{equation}
+			V =
+			\begin{cases}
+				0 & x\in [0, a], y\in [0, b]\\
+				\infty & wpp,
+			\end{cases} 
+	\end{equation}
+	Z metody rozdzielania zmiennych i warunku unormowania
+	\begin{equation}
+		X(x) = \sqrt{\frac{2}{a}}\sin \left(\frac{n_{x}\pi x}{a}\right ),
+	\end{equation}
+	oraz:
+	\begin{equation}
+		Y(y) = \sqrt{\frac{2}{b}}\sin \left(\frac{n_{y}\pi y}{b}\right ).
+	\end{equation}
+	Stąd rozwiązanie równania Schrödingera dla rozważanej studni
+	\begin{equation}
+		\Psi (x, y, t) = \sqrt{\frac{2}{a}}\sin \left(\frac{n_{x}\pi x}{a}\right )\sqrt{\frac{2}{b}}\sin \left(\frac{n_{y}\pi y}{b}\right )e^{\frac{-iEt}{\hbar ^{2}}}.
+	\end{equation}
+\section{Poziomy energetyczne}
+	Energia jest dana wzorem
+	\begin{equation}
+		E = E_{x}+E_{y},
+	\end{equation}
+	\begin{equation}
+		E_{x} = \frac{n_{x} ^{2} \pi ^{2} \hbar ^{2}}{a^{2} 2 m}
+	\end{equation}
+	oraz
+	\begin{equation}
+		E_{y} = \frac{n_{y} ^{2} \pi ^{2} \hbar ^{2}}{a^{2} 2 m}.
+	\end{equation}
+	Stąd poziomy energetyczne dane są wzorem
+	\begin{equation}
+		E_{n_{x}, n_{y}} = \frac{\pi ^{2} \hbar ^{2}}{2m} (n_{x}^2+n_{y}^{2}).
+	\end{equation}
+\section{Stany nieustalone nieskończonej dwuwymiarowej studni potencjału}
+	Stany nieustalone są dane wzorem
+	\begin{equation}
+		\Psi (x, t) = \sum_{n=1}^{N} c_{n}\Psi_{n}(x, t)e^{\frac{-iE_{x}t}{\hbar ^{2}}}
+	\end{equation}
+	oraz
+	\begin{equation}
+		\Psi (y, t) = \sum_{m=1}^{N} c_{m}\Psi_{m} e^{\frac{-iE_{y}t}{\hbar ^{2}}}.
+	\end{equation}
+	Więc:
+	\begin{equation}
+		\Psi(x, y, t) = \sum_{n=1}^{N} c_{n}\Psi_{n}(x, t)\sum_{m=1}^{N} c_{m}\Psi_{m} e^{\frac{-iEt}{\hbar ^{2}}},
+	\end{equation}
+	Energia jest dana wzorem
+	\begin{equation}
+		E = E_{x}+E_{y}
+	\end{equation}
+	Współczynniki w pzypadku rozważanej studni są unormowane:
+	\begin{equation}
+		\sum_{n=1}^{N}|c_{n}|^{2} = 1.
+	\end{equation}
+\section{Paczka gaussowska w dwuwymmiarowej nieskończonej studni potencjału}
+	Rozwiazanie ogólne równania Schrödingera jest liniową kombinacją osobnych rozwiązań
+	\begin{equation}
+		\Psi(x, y, t) = \sum_{n=1}^{N} c_{n}\Psi_{n}(x, t)\sum_{m=1}^{N} c_{m}\Psi_{m} e^{\frac{-iEt}{\hbar ^{2}}}.
+	\end{equation}
+	Współczynniki wyznaczone są wzorem
+	\begin{equation}
+		c_{n} = \int_{0}^{L}\Psi _{n}(x)^{*}\Psi (x,0)dx,
+	\end{equation}
+	\begin{equation}
+		c_{m} = \int_{0}^{L}\Psi _{m}(y)^{*}\Psi (y,0)dy.
+	\end{equation}	
+	Warunek początkowy funkcji falowej dla paczki gaussowskiej jest dany rozkładem normalnym
+	\begin{equation}
+		\Psi(x, 0) = Ae^{\frac{-(x-a_{0})^{2}}{2\sigma ^{2}}}e^{ik_{0}x}
+	\end{equation}
+	oraz
+	\begin{equation}
+		\Psi(y, 0) = Ae^{\frac{-(y-b_{0})^{2}}{2\sigma ^{2}}}e^{ik_{0}y}.
+	\end{equation}	
+\end{document}

@@ -57,6 +57,7 @@ if __name__ == "__main__":
     ax.set_ylabel(r'$y$')
     Z = Psi_3d(X, Y, time)
     line = ax.plot_surface(X, Y, Z, cmap = cm.twilight, linewidth = 0.5)
+    #ani = animation.FuncAnimation(fig, animate, fargs = (Z, line),  interval=100)
     ani = animation.FuncAnimation(fig, animate, fargs = (Z, line), frames = 600, interval=100)
     #writer = PillowWriter(fps=60)
     #ani.save("Square_well_stationary_states_3D.gif", writer=writer)	

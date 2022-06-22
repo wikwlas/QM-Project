@@ -24,6 +24,9 @@ time  = 0
 
 
 number = 2
+nx = [1, 3, 2, 4]
+ny = [2, 1, 1, 1]
+
 nx = [1, 2]
 ny = [2, 1]
 
@@ -51,7 +54,7 @@ def animate(i):
     global time
     global PSI
     global cbaractive
-    #print(time) ok 
+    #print(time) ok
     Coefficients()
     for i in range(number):
 	    PSI = PSI+Coefficient[i]*Psi(nx[i], ny[i], time)
@@ -67,8 +70,9 @@ if __name__ == "__main__":
     ax.set_title('Particle in an Infinite 2D Square Well -> non-stationary states')
     ax.set_xlabel('x [nm]')
     ax.set_ylabel('y [nm]')
-	
-    ani = animation.FuncAnimation(fig, animate, frames = 600, interval=100)
-    #writer = PillowWriter(fps=60)
-    #ani.save("Square_well_non_stationary_states.gif", writer=writer)
+    ani = animation.FuncAnimation(fig, animate, frames = 600, interval = 100, blit = False)
     plt.show()
+    # writer = PillowWriter(fps=60)
+    # ani.save("Square_well_non_stationary_states.gif", writer=writer)
+
+
